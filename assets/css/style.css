@@ -1,38 +1,8 @@
-#view-scores {
-    display: flex;
-    flex-wrap: wrap;
-    width: 15%;
-}
-
-#view-scores p {
-    padding: 20px;
-    text-decoration: underline;
-}
-
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-}
-
-.container a {
-    margin-top: 75px;;
-}
-
-#timer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    padding: 20px;
-    font-size: 75px;
-    font-weight: bold;
-}
-
+/*index.html styles*/
 body {
     display: flex;
     flex-wrap: wrap;
-    background-color: lightsteelblue;
+    background-color: rgb(27, 97, 226);
     color: black;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 20px;
@@ -46,16 +16,49 @@ body {
     width: 100%;
     align-items: center;
     text-align: center;
-    margin-top: 150px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.container a {
+    margin-top: 75px;;
+}
+
+#view-scores {
+    display: flex;
+    flex-wrap: wrap;
+    width: 15%;
+}
+
+#view-scores p {
+    padding: 20px;
+    text-decoration: underline;
+}
+
+
+/*game.html styles*/
+#timer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    padding: 20px;
+    font-size: 75px;
+    font-weight: bold;
 }
 
 .btn {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    height: 35px;
-    width: 150px;
-    background-color: blueviolet;
+    height: 40px;
+    width: 200px;
+    background-color: lightskyblue;
+    color: darkblue;
     border-radius: 5px;
     align-items: center;
     justify-content: center;
@@ -80,7 +83,7 @@ body {
     flex-wrap: wrap;
     height: 70px;
     width: 70%;
-    background-color: blueviolet;
+    background-color: lightskyblue;
     border-radius: 5px;
     align-items: left;
     justify-content: space-evenly;
@@ -93,11 +96,36 @@ body {
 }
 
 .choice-prefix {
-    color: white;
+    color: darkblue;
     font-size: 30px;
 }
 
 .choice-text {
     font-weight: bold;
     font-size: 35px;
+}
+
+/*end.html styles*/
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.input {
+    padding: 20px;
+}
+
+.input::placeholder {
+    color: #aaa;
+}
+
+#username {
+    height: 50px;
+    width: 200px;
+    border-radius: 4px;
+    text-align: center;
+    margin-bottom: 15px;
 }

@@ -75,7 +75,10 @@ function updateTimer() {
     }
 };
 
+//Final score will be however much time remains
 let score = time
+
+
 
 //function to start game and timer
 startGame = () => {
@@ -84,6 +87,8 @@ startGame = () => {
     getNewQuestion();
     //udpateTimer();
 };
+
+
 
 //function to pull new questions and choices
 getNewQuestion = () => {
@@ -130,7 +135,7 @@ choice.forEach(choice => {
             time = time - 20;
 }
 
-        selectedChoice.parentElement.classList.add(classToApply)
+    selectedChoice.parentElement.classList.add(classToApply)
 
         setTimeout(() => {
     selectedChoice.parentElement.classList.remove(classToApply)
@@ -140,3 +145,39 @@ choice.forEach(choice => {
 });
 
 startGame();
+
+//End of game, enter name and save score
+const username = document.querySelector('#username');
+const saveScoreBtn = document.querySelector('#saveScoreBtn');
+const finalScore = document.querySelector('#finalScore');
+const mostRecentScore = document.querySelector('#mostRecentScore');
+
+const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+
+const maxHighScores = 4;
+
+finalScore.innerText = mostRecentScore;
+
+username.addEventListener('keyup', () => {
+    saveScoreBtn.disabled = !username.value
+})
+
+saveHighScore = e => {
+    e.preventDefault()
+
+    const score = {
+        score: mostRecentScore,
+        name: username.value,
+    }
+
+    highScores.push(score);
+
+    highScores.sort((a,b) => {
+        return b.score - a.score
+    })
+
+    highScores.splice(4)
+
+    localStorage.setItem('highScores', JSON.stringify(highScores))
+    window.location.assign('/')
+}
