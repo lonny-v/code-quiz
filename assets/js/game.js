@@ -85,7 +85,7 @@ startGame = () => {
     questionCounter = 0;
     availableQuestions = [...questions];
     getNewQuestion();
-    //udpateTimer();
+    updateTimer();
 };
 
 
@@ -128,7 +128,7 @@ choice.forEach(choice => {
         const selectedChoice = e.target
         const selectedAnswer = selectedChoice.dataset['number'];
 
-        let classToApply = selectedAnswer == currentQuestion.answer ? 'correct' : 'incorrect'
+        let classToApply = selectedAnswer == currentQuestion.answer ? 'correct' : 'incorrect';
 
         if (classToApply === 'incorrect') {
             
@@ -141,16 +141,22 @@ choice.forEach(choice => {
     selectedChoice.parentElement.classList.remove(classToApply)
     getNewQuestion()
 }, 10)
+
     })
 });
 
 startGame();
 
+
+
+
+
 //End of game, enter name and save score
 const username = document.querySelector('#username');
 const saveScoreBtn = document.querySelector('#saveScoreBtn');
 const finalScore = document.querySelector('#finalScore');
-const mostRecentScore = document.querySelector('#mostRecentScore');
+const mostRecentScore = localStorage.getItem('mostRecentScore');
+const highScoresList = document.querySelector("#highScoresList");
 
 const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
 
@@ -161,6 +167,13 @@ finalScore.innerText = mostRecentScore;
 username.addEventListener('keyup', () => {
     saveScoreBtn.disabled = !username.value
 })
+
+
+//High Score and local storage
+highScoresList.innerHTML=
+highScores.map(score => {
+    return `<li class="high-score">${score.name} - ${score.score}</li>`
+}).join('');
 
 saveHighScore = e => {
     e.preventDefault()

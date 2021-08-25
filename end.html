@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,17 +8,25 @@
     <title>Scores</title>
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
+
 <body>
     <div id="main-content">
         <div id="end" class="flex-center flex-column">
-            <h1 id="final-score">High Scores</h1>
+            <h1>Your Score</h1>
+            <h1 id="finalScore">0</h1>
             <form class="form-container">
                 <h2 id="end-text">Enter your name to save score</h2>
                 <input type="text" name="name" id="username" placeholder="Enter your name">
-                <button class="btn" id="saveScoreBtn" type="submit" onClick="saveScore(event)" disabled>Save</button>
+                <button class="btn" id="saveScoreBtn" type="submit" onclick="saveHighScore(event)"
+                    disabled>Save</button>
             </form>
         </div>
-
+    </div>
+    <div class="container">
+        <div id="highScores">
+            <h1>High Score</h1>
+            <ul id="highScoresList"></ul>
+        </div>
     </div>
 
 
@@ -26,4 +35,5 @@
 
     <script src="./assets/js/game.js"></script>
 </body>
+
 </html>
